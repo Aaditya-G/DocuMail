@@ -22,9 +22,19 @@ exports.handleTransactionPdfGeneration = async (email, startDate, endDate) => {
     endDate
   );
 
-  const pdfBuffer = await pdfGenerator.generatePdf(transactions);
+  if (transactions.length) {
+    const pdfBuffer = await pdfGenerator.generatePdf(transactions);
 
-  const message = emailService.sendEmail(email, pdfBuffer, startDate, endDate);
+    const message = emailService.sendEmail(
+      email,
+      pdfBuffer,
+      startDate,
+      endDate
+    );
 
-  return message;
+    return message;
+  } else {
+    const message = "No transactions found for this user";
+    return message;
+  }
 };
