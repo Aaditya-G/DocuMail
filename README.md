@@ -59,9 +59,6 @@ The server would run on specified host and port, it is recommended to use `local
         "endDate": "2024-08-10T00:00:00.000Z"
      }
 
-### Sample Request Header
-
-![Sample Request Header](./images/image.png)
   
 ## License
 This project is licensed under the MIT License.
