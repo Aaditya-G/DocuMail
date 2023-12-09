@@ -61,7 +61,7 @@ The server would run on specified host and port, it is recommended to use `local
 
 ### Sample Request Header
 
-![Sample Request Header](./readme-images/image.png)
+![Sample Request Header](image.png)
   
 ## License
 This project is licensed under the MIT License.
