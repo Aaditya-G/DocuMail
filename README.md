@@ -1,7 +1,36 @@
 # DocuMail
 
+
+## Contents
+- [Description](#description)
+- [Authentication and Authorizatoin](#authentication-and-authorization)
+- [Features](#features)
+- [Setup](#setup)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Setting up Google's App Password](#setting-up-googles-app-password)
+  - [Running the Service](#running-the-service)
+- [Usage](#usage)
+- [License](#license)
+
+
 ## Description
 This API service is designed to retrieve transaction details for a user, generate a PDF report of these transactions, and then email this report to the user. It's a convenient way to provide users with a detailed view of their transactions in a user-friendly format.
+
+## Authentication and Authorization
+currently , we do not need any authentication to access the endpoint , to implement that we will need to create another table, or a csv file. Below is a simple procedure for a very basic auth.
+
+We will have to define three new routes, `/register` , `/login` , `/logout` , upon registering the user's details would be stored in the user details file/table.  
+We would store only the email and password for now.
+
+Upon login , the email and password would be matched, if it fails , we will throw appropriate responsse, if it passes, we will pass create a jwt-token using the email and store it in session storage.
+
+we will make use of a middleware function to authenticate the user , and set the header to the email from the jwt-token. if user is not authenticated then we throw an appropriate response
+
+whenever the route `/api` and `/logout` is called , we will incorporate this middleware.
+
+upon logout , the jwt-token would be cleared from the session storage.
 
 ## Features
 - Fetch user transaction details.
